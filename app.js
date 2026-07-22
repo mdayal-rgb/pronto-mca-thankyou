@@ -119,7 +119,6 @@ const copy = {
 };
 
 const cards = [...document.querySelectorAll(".clickable")];
-const reviewBadge = document.getElementById("reviewBadge");
 const architectureToggles = [...document.querySelectorAll(".architecture-toggle")];
 
 function selectCard(id) {
@@ -142,10 +141,6 @@ architectureToggles.forEach((toggle) => {
     toggle.setAttribute("aria-expanded", next ? "true" : "false");
     toggle.textContent = next ? "Hide flow details" : "View flow details";
   });
-});
-
-reviewBadge.addEventListener("click", () => {
-  alert("Review mode: click cards to validate architecture narrative and demo talk track.");
 });
 
 selectCard("rescueMatchDispatch");

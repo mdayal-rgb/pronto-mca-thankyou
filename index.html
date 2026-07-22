@@ -11,40 +11,39 @@
       <header class="hero">
         <p class="eyebrow">Pronto Cares · Data Architecture</p>
         <h1>From food waste to safe, neighbor-first meal delivery</h1>
-        <button id="reviewBadge" class="review-badge" type="button">
-          <span class="dot"></span>
-          Internal / engineering review
-        </button>
+        <p class="hero-subtitle">
+          A mission-led architecture that turns surplus food into trusted, on-time meal delivery.
+        </p>
       </header>
 
-      <section class="narrative challenge-section">
-        <p class="eyebrow">Challenge</p>
-        <h2>Too much food is wasted while families still miss meals.</h2>
-        <p>
-          In the U.S., roughly <strong>30 to 40 percent of the food supply goes unsold or uneaten</strong>,
-          while many households still face food insecurity. Pronto Cares closes that gap with
-          real-time rescue and delivery operations.
-        </p>
-        <p class="source-note">Source: USDA Food Loss and Waste estimates (U.S.).</p>
-      </section>
+      <section class="narrative-grid">
+        <section class="narrative narrative-card challenge-section">
+          <p class="eyebrow">Challenge</p>
+          <h2>Too much food is wasted while families still miss meals.</h2>
+          <p>
+            In the U.S., roughly <strong>30 to 40 percent of the food supply goes unsold or uneaten</strong>,
+            while many households still face food insecurity.
+          </p>
+          <p class="source-note">Source: USDA Food Loss and Waste estimates (U.S.).</p>
+        </section>
 
-      <section class="narrative solution-section">
-        <p class="eyebrow">Solution</p>
-        <h2>Turn surplus into safe, on-time deliveries.</h2>
-        <p>
-          Pronto Cares coordinates donations, recipient need, and driver availability in one flow.
-          Every handoff is safety-aware, time-aware, and optimized to reduce waste while increasing
-          successful meal delivery.
-        </p>
-      </section>
+        <section class="narrative narrative-card solution-section">
+          <p class="eyebrow">Solution</p>
+          <h2>Turn surplus into safe, on-time deliveries.</h2>
+          <p>
+            Pronto Cares coordinates donations, recipient need, and driver availability in one
+            safety-aware flow that reduces waste and increases successful deliveries.
+          </p>
+        </section>
 
-      <section class="narrative mission-section">
-        <p class="eyebrow">Mission</p>
-        <h2>Food as medicine. Do no harm.</h2>
-        <p>
-          Deliver meals with dignity, warmth, and trust. The mission is not just moving food — it is
-          making sure the right meal reaches the right person, safely and on time.
-        </p>
+        <section class="narrative narrative-card mission-section">
+          <p class="eyebrow">Mission</p>
+          <h2>Food as medicine. Do no harm.</h2>
+          <p>
+            Deliver with dignity, warmth, and trust so the right meal reaches the right person,
+            safely and on time.
+          </p>
+        </section>
       </section>
 
       <h2 class="section-heading">Agent Details</h2>
@@ -228,8 +227,8 @@
             <p class="label">Channels Used</p>
             <h2>Website, WhatsApp, Email</h2>
             <p>Recipient support and distribution updates are delivered through these channels.</p>
-            <div class="channel-list">
-              <div class="channel-item">
+            <ul class="channel-list">
+              <li class="channel-item">
                 <span class="channel-logo" aria-hidden="true">
                   <svg viewBox="0 0 24 24" role="img">
                     <circle cx="12" cy="12" r="10" fill="#4b6a89"></circle>
@@ -237,8 +236,8 @@
                   </svg>
                 </span>
                 <span>Website</span>
-              </div>
-              <div class="channel-item">
+              </li>
+              <li class="channel-item">
                 <span class="channel-logo" aria-hidden="true">
                   <svg viewBox="0 0 24 24" role="img">
                     <circle cx="12" cy="12" r="10" fill="#25D366"></circle>
@@ -247,8 +246,8 @@
                   </svg>
                 </span>
                 <span>WhatsApp</span>
-              </div>
-              <div class="channel-item">
+              </li>
+              <li class="channel-item">
                 <span class="channel-logo" aria-hidden="true">
                   <svg viewBox="0 0 24 24" role="img">
                     <rect x="2.5" y="5" width="19" height="14" rx="2.5" fill="#f26b1d"></rect>
@@ -256,8 +255,8 @@
                   </svg>
                 </span>
                 <span>Email</span>
-              </div>
-            </div>
+              </li>
+            </ul>
           </article>
         </section>
       </section>
@@ -268,22 +267,34 @@
         <article class="persona-card clickable" data-id="personaDonor">
           <img class="persona-avatar-image" src="./assets/avatar-donor.svg" alt="Donor persona avatar" />
           <h3>Donor</h3>
+          <p class="persona-role">Food donor / community partner</p>
           <p>
-            Wants to ensure surplus food is quickly redirected, not discarded.
+            <strong>Needs:</strong> confidence that surplus food is redirected, not discarded.
+          </p>
+          <p>
+            <strong>Success:</strong> visible impact from every donation.
           </p>
         </article>
         <article class="persona-card clickable" data-id="personaDriver">
           <img class="persona-avatar-image" src="./assets/avatar-driver.svg" alt="Driver persona avatar" />
           <h3>Driver</h3>
+          <p class="persona-role">Rescue and delivery operator</p>
           <p>
-            Needs clean routes, clear handoff instructions, and real-time updates.
+            <strong>Needs:</strong> clear routes, handoff notes, and real-time updates.
+          </p>
+          <p>
+            <strong>Success:</strong> fewer failed handoffs and faster dispatch cycles.
           </p>
         </article>
         <article class="persona-card clickable" data-id="personaRecipient">
           <img class="persona-avatar-image" src="./assets/avatar-recipient.svg" alt="Recipient persona avatar" />
           <h3>Recipient</h3>
+          <p class="persona-role">Meal recipient</p>
           <p>
-            Needs safe meals, reliable timing, and respectful, human support.
+            <strong>Needs:</strong> safe meals, reliable timing, and respectful support.
+          </p>
+          <p>
+            <strong>Success:</strong> trusted, on-time delivery with dignity.
           </p>
         </article>
       </section>

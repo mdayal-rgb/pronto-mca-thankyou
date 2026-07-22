@@ -26,24 +26,36 @@ body {
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 10px;
-  align-items: center;
+  display: block;
   margin-bottom: 18px;
 }
 
 .section-heading {
-  margin: 18px 0 10px;
+  margin: 32px 0 12px;
   font-size: 28px;
   color: #2f2b27;
+}
+
+.hero-subtitle {
+  margin: 10px 0 0;
+  font-size: 18px;
+  line-height: 1.45;
+  color: #635852;
+  max-width: 900px;
+}
+
+.narrative-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 8px;
 }
 
 .narrative {
   background: #fff9f4;
   border: 1px solid #ecd5c3;
   border-radius: 14px;
-  padding: 18px;
+  padding: 20px;
   margin-bottom: 12px;
 }
 
@@ -58,6 +70,10 @@ body {
   color: #5f544d;
   line-height: 1.5;
   font-size: 16px;
+}
+
+.narrative-card {
+  margin-bottom: 0;
 }
 
 .challenge-section {
@@ -358,6 +374,8 @@ h1 {
 }
 
 .channel-list {
+  list-style: none;
+  padding: 0;
   margin-top: 12px;
   display: grid;
   gap: 8px;
@@ -421,6 +439,15 @@ h1 {
   line-height: 1.45;
 }
 
+.persona-card p + p {
+  margin-top: 6px;
+}
+
+.persona-role {
+  color: #8a7a70 !important;
+  font-size: 14px;
+}
+
 .persona-avatar {
   width: 56px;
   height: 56px;
@@ -455,6 +482,9 @@ h1 {
 }
 
 @media (max-width: 980px) {
+  .narrative-grid {
+    grid-template-columns: 1fr;
+  }
   .layout {
     grid-template-columns: 1fr;
   }
