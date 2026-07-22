@@ -33,10 +33,53 @@ body {
   margin-bottom: 18px;
 }
 
-.architecture-heading {
+.section-heading {
   margin: 18px 0 10px;
   font-size: 28px;
   color: #2f2b27;
+}
+
+.narrative {
+  background: #fff9f4;
+  border: 1px solid #ecd5c3;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+.narrative h2 {
+  margin: 6px 0 8px;
+  font-size: 30px;
+  line-height: 1.18;
+}
+
+.narrative p {
+  margin: 0;
+  color: #5f544d;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.challenge-section {
+  border-left: 5px solid #f57a30;
+}
+
+.solution-section {
+  border-left: 5px solid #d49a58;
+}
+
+.mission-section {
+  border-left: 5px solid #8c6b51;
+}
+
+.source-note {
+  margin-top: 10px !important;
+  font-size: 12px !important;
+  color: #8a7a70 !important;
+}
+
+.architecture-heading {
+  margin-top: 22px;
 }
 
 .architecture-canvas {
@@ -340,6 +383,55 @@ h1 {
   box-shadow: 0 0 0 3px rgba(255, 106, 26, 0.22);
 }
 
+.personas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.persona-card {
+  background: #fffdfa;
+  border: 1.5px solid #ecd5c3;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.persona-card h3 {
+  margin: 10px 0 6px;
+  font-size: 22px;
+}
+
+.persona-card p {
+  margin: 0;
+  color: #61554d;
+  line-height: 1.45;
+}
+
+.persona-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #fff;
+  font-size: 24px;
+}
+
+.persona-avatar.donor {
+  background: linear-gradient(140deg, #ff8d4a, #f26b1d);
+}
+
+.persona-avatar.driver {
+  background: linear-gradient(140deg, #4b6a89, #2f4358);
+}
+
+.persona-avatar.recipient {
+  background: linear-gradient(140deg, #7d5d4a, #5a4234);
+}
+
 @media (max-width: 980px) {
   .layout {
     grid-template-columns: 1fr;
@@ -360,6 +452,9 @@ h1 {
   .agent-grid {
     grid-template-columns: 1fr;
   }
+  .personas {
+    grid-template-columns: 1fr;
+  }
   .embedded-title {
     font-size: 34px;
   }
@@ -371,5 +466,8 @@ h1 {
   }
   .agent-card p {
     font-size: 15px;
+  }
+  .narrative h2 {
+    font-size: 24px;
   }
 }

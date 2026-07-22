@@ -10,15 +10,46 @@
     <main class="page">
       <header class="hero">
         <p class="eyebrow">Pronto Cares · Data Architecture</p>
-        <h1>From Salesforce telemetry to a grounded rescue-matching agent</h1>
+        <h1>From food waste to safe, neighbor-first meal delivery</h1>
         <button id="reviewBadge" class="review-badge" type="button">
           <span class="dot"></span>
           Internal / engineering review
         </button>
       </header>
 
+      <section class="narrative challenge-section">
+        <p class="eyebrow">Challenge</p>
+        <h2>Too much food is wasted while families still miss meals.</h2>
+        <p>
+          In the U.S., roughly <strong>30 to 40 percent of the food supply goes unsold or uneaten</strong>,
+          while many households still face food insecurity. Pronto Cares closes that gap with
+          real-time rescue and delivery operations.
+        </p>
+        <p class="source-note">Source: USDA Food Loss and Waste estimates (U.S.).</p>
+      </section>
+
+      <section class="narrative solution-section">
+        <p class="eyebrow">Solution</p>
+        <h2>Turn surplus into safe, on-time deliveries.</h2>
+        <p>
+          Pronto Cares coordinates donations, recipient need, and driver availability in one flow.
+          Every handoff is safety-aware, time-aware, and optimized to reduce waste while increasing
+          successful meal delivery.
+        </p>
+      </section>
+
+      <section class="narrative mission-section">
+        <p class="eyebrow">Mission</p>
+        <h2>Food as medicine. Do no harm.</h2>
+        <p>
+          Deliver meals with dignity, warmth, and trust. The mission is not just moving food — it is
+          making sure the right meal reaches the right person, safely and on time.
+        </p>
+      </section>
+
+      <h2 class="section-heading">Agent Details</h2>
       <section class="embedded-agents">
-        <p class="eyebrow eyebrow-dark">Mission + Agents</p>
+        <p class="eyebrow eyebrow-dark">Embedded Agent</p>
         <h2 class="embedded-title">The embedded agent</h2>
         <p class="embedded-subtitle">
           The Pronto site hosts a live Salesforce Agentforce agent — a warm concierge, not a form.
@@ -51,7 +82,7 @@
         </div>
       </section>
 
-      <h2 class="architecture-heading">Architecture</h2>
+      <h2 class="section-heading architecture-heading">Architecture</h2>
       <section class="architecture-canvas">
       <section class="layout">
         <section class="left-rail">
@@ -194,6 +225,31 @@
           </article>
         </section>
       </section>
+      </section>
+
+      <h2 class="section-heading">Personas</h2>
+      <section class="personas">
+        <article class="persona-card clickable" data-id="personaDonor">
+          <div class="persona-avatar donor" aria-hidden="true">D</div>
+          <h3>Donor</h3>
+          <p>
+            Wants to ensure surplus food is quickly redirected, not discarded.
+          </p>
+        </article>
+        <article class="persona-card clickable" data-id="personaDriver">
+          <div class="persona-avatar driver" aria-hidden="true">R</div>
+          <h3>Driver</h3>
+          <p>
+            Needs clean routes, clear handoff instructions, and real-time updates.
+          </p>
+        </article>
+        <article class="persona-card clickable" data-id="personaRecipient">
+          <div class="persona-avatar recipient" aria-hidden="true">P</div>
+          <h3>Recipient</h3>
+          <p>
+            Needs safe meals, reliable timing, and respectful, human support.
+          </p>
+        </article>
       </section>
     </main>
 

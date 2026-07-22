@@ -89,6 +89,33 @@ const copy = {
       "Best demo line: resilient trust layer fallback",
     ],
   },
+  personaDonor: {
+    title: "Donor",
+    body: "Contributes surplus food and wants confidence that it reaches real households quickly.",
+    bullets: [
+      "Pain: good food wasted due to logistics friction",
+      "Need: transparent routing and pickup confidence",
+      "Outcome: measurable social impact from each donation",
+    ],
+  },
+  personaDriver: {
+    title: "Driver",
+    body: "Executes safe handoffs and needs clear route, timing, and exception context.",
+    bullets: [
+      "Pain: fragmented dispatch and unclear delivery notes",
+      "Need: real-time telemetry and guided handoff steps",
+      "Outcome: fewer failed deliveries and faster turnaround",
+    ],
+  },
+  personaRecipient: {
+    title: "Recipient",
+    body: "Relies on reliable meal delivery with dignity and clear communication.",
+    bullets: [
+      "Pain: missed windows and inconsistent updates",
+      "Need: safety-first matching and warm support",
+      "Outcome: trusted, on-time meals and better well-being",
+    ],
+  },
 };
 
 const cards = [...document.querySelectorAll(".clickable")];
