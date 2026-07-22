@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pronto Cares Data Architecture</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <p class="eyebrow">Pronto Cares · Data Architecture</p>
+        <h1>From Salesforce telemetry to a grounded rescue-matching agent</h1>
+        <button id="reviewBadge" class="review-badge" type="button">
+          <span class="dot"></span>
+          Internal / engineering review
+        </button>
+      </header>
+
+      <section class="embedded-agents">
+        <p class="eyebrow eyebrow-dark">Mission + Agents</p>
+        <h2 class="embedded-title">The embedded agent</h2>
+        <p class="embedded-subtitle">
+          The Pronto site hosts a live Salesforce Agentforce agent — a warm concierge, not a form.
+        </p>
+
+        <div class="agent-grid">
+          <article class="agent-card clickable" data-id="rescueMatchDispatch">
+            <div class="agent-chip" aria-hidden="true">❤</div>
+            <h3>Rescue Match &amp; Dispatch</h3>
+            <p>
+              Matches donation → need → driver on Snowflake telemetry. The operational spine.
+            </p>
+          </article>
+
+          <article class="agent-card clickable" data-id="safeToEatGuardian">
+            <div class="agent-chip" aria-hidden="true">❤</div>
+            <h3>Safe-to-Eat Guardian</h3>
+            <p>
+              Checks allergens + cold-chain before routing. The hero trust moment.
+            </p>
+          </article>
+
+          <article class="agent-card clickable" data-id="wellBeingCheckIn">
+            <div class="agent-chip" aria-hidden="true">❤</div>
+            <h3>Well-Being Check-In</h3>
+            <p>
+              Multi-channel (web, Voice, Slack) confirmations and missed-meal flags. The human face.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <h2 class="architecture-heading">Architecture</h2>
+      <section class="architecture-canvas">
+      <section class="layout">
+        <section class="left-rail">
+          <article class="card card-wide clickable architecture-card" data-id="salesforceOrg">
+            <p class="label">System of Record</p>
+            <h2>Salesforce Org</h2>
+            <p>
+              The primary system of record for the Pronto Cares org — the home
+              base every other layer plugs into.
+            </p>
+            <button class="architecture-toggle" type="button" aria-expanded="false" aria-controls="flow-salesforceOrg">
+              View flow details
+            </button>
+            <div class="flow-details" id="flow-salesforceOrg">
+              <p><strong>Inputs:</strong> Agent interactions, service workflows, and CRM entities.</p>
+              <p><strong>Transform:</strong> Operational context, routing rules, and case state are normalized.</p>
+              <p><strong>Output:</strong> Structured records consumed by Data Cloud and downstream telemetry joins.</p>
+            </div>
+          </article>
+
+          <div class="row">
+            <article class="card clickable architecture-card" data-id="snowflake">
+              <p class="label">Telemetry</p>
+              <h3>Snowflake</h3>
+              <p>
+                Zero-copy integration for live telemetry powering driver and
+                order tracking for rescue dispatch.
+              </p>
+              <button class="architecture-toggle" type="button" aria-expanded="false" aria-controls="flow-snowflake">
+                View flow details
+              </button>
+              <div class="flow-details" id="flow-snowflake">
+                <p><strong>Inputs:</strong> Driver pings, order lifecycle events, and dispatch timestamps.</p>
+                <p><strong>Transform:</strong> Near real-time telemetry joins identify delay and exception patterns.</p>
+                <p><strong>Output:</strong> Dispatch confidence signals used by Rescue Match &amp; Dispatch.</p>
+              </div>
+            </article>
+            <article class="card clickable architecture-card" data-id="amazonS3">
+              <p class="label">Enrichment / External Data</p>
+              <h3>Amazon S3</h3>
+              <p>
+                Enrichment data for matching donors and recipients — optimized
+                for demo-friendly setup.
+              </p>
+              <button class="architecture-toggle" type="button" aria-expanded="false" aria-controls="flow-amazonS3">
+                View flow details
+              </button>
+              <div class="flow-details" id="flow-amazonS3">
+                <p><strong>Inputs:</strong> Partner files, preferences, and recipient profile enrichments.</p>
+                <p><strong>Transform:</strong> Batch validation and shape alignment for harmonization.</p>
+                <p><strong>Output:</strong> Enriched records merged into Data Cloud DMOs for matching quality.</p>
+              </div>
+            </article>
+          </div>
+
+          <article class="card card-wide clickable architecture-card" data-id="dataCloudDmos">
+            <p class="label">Unified Data Layer</p>
+            <h2>Data Cloud DMOs</h2>
+            <p>
+              A connected hub that lets Rescue Match and Dispatch reason across
+              recipients, donors, items, and drivers.
+            </p>
+            <ul class="pill-row">
+              <li>Recipients</li>
+              <li>Donors</li>
+              <li>Rescued Items</li>
+              <li>Dispatches</li>
+              <li>CRM contact + address + phone</li>
+            </ul>
+            <button class="architecture-toggle" type="button" aria-expanded="false" aria-controls="flow-dataCloudDmos">
+              View flow details
+            </button>
+            <div class="flow-details" id="flow-dataCloudDmos">
+              <p><strong>Inputs:</strong> CRM records, Snowflake telemetry, and S3 enrichment feeds.</p>
+              <p><strong>Transform:</strong> Identity resolution and canonical DMO mapping across domains.</p>
+              <p><strong>Output:</strong> A single reasoning graph consumed by agents and analytics.</p>
+            </div>
+          </article>
+
+          <article class="card card-wide clickable architecture-card" data-id="tableau">
+            <p class="label">Visualization / Analytics</p>
+            <h2>Tableau (or other analytics tools)</h2>
+            <p>
+              Tableau Next advantage: a single connector makes all data
+              available through a semantic layer for AI-ready insights.
+            </p>
+            <button class="architecture-toggle" type="button" aria-expanded="false" aria-controls="flow-tableau">
+              View flow details
+            </button>
+            <div class="flow-details" id="flow-tableau">
+              <p><strong>Inputs:</strong> Unified DMO tables and operational outcome metrics.</p>
+              <p><strong>Transform:</strong> Semantic-layer modeling for role-specific dashboards.</p>
+              <p><strong>Output:</strong> Explainable performance views for mission, safety, and delivery SLAs.</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="right-rail">
+          <div class="rail-title">RAG / Policy Grounding</div>
+          <p class="rail-subtitle">
+            Grounds the Safe-to-Eat Guardian in real policy, always with
+            citation-backed answers.
+          </p>
+
+          <article class="card card-tall clickable architecture-card" data-id="adlPrimary">
+            <p class="label">Primary</p>
+            <h2>Einstein Data Library (ADL)</h2>
+            <p>
+              Food safety policy documents power grounded responses for the
+              Safe-to-Eat Guardian.
+            </p>
+            <button class="architecture-toggle" type="button" aria-expanded="false" aria-controls="flow-adlPrimary">
+              View flow details
+            </button>
+            <div class="flow-details" id="flow-adlPrimary">
+              <p><strong>Inputs:</strong> Food-safety policies and grounded governance documents.</p>
+              <p><strong>Transform:</strong> Retrieval + citation selection for policy-safe generation.</p>
+              <p><strong>Output:</strong> Traceable answers for Safe-to-Eat Guardian decisions.</p>
+            </div>
+          </article>
+
+          <div class="fallback-tag">deterministic fallback</div>
+
+          <article class="card card-tall clickable architecture-card" data-id="customMetadata">
+            <p class="label">Fallback</p>
+            <h2>Custom Metadata Type</h2>
+            <p class="mono">Pronto_Policy__mdt</p>
+            <p>
+              Deterministic citation store for decision codes, deployed with
+              the app independently of indexing pipelines.
+            </p>
+            <button class="architecture-toggle" type="button" aria-expanded="false" aria-controls="flow-customMetadata">
+              View flow details
+            </button>
+            <div class="flow-details" id="flow-customMetadata">
+              <p><strong>Inputs:</strong> Curated policy snippets keyed by decision reason code.</p>
+              <p><strong>Transform:</strong> Deterministic lookup when ADL retrieval is unavailable.</p>
+              <p><strong>Output:</strong> Guaranteed citation fallback for resilient trust behavior.</p>
+            </div>
+          </article>
+        </section>
+      </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
