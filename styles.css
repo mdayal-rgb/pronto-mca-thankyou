@@ -32,9 +32,9 @@ body {
 
 .hero-logo {
   display: block;
-  width: min(420px, 72vw);
+  width: min(180px, 34vw);
   height: auto;
-  margin: 0 0 14px;
+  margin: 0 0 10px;
 }
 
 .section-heading {
@@ -490,8 +490,8 @@ h1 {
 
 @media (max-width: 980px) {
   .hero-logo {
-    width: min(320px, 82vw);
-    margin-bottom: 10px;
+    width: min(150px, 48vw);
+    margin-bottom: 8px;
   }
   .narrative-grid {
     grid-template-columns: 1fr;
