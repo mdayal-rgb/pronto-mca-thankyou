@@ -466,6 +466,15 @@ h1 {
   background: linear-gradient(140deg, #7d5d4a, #5a4234);
 }
 
+.persona-avatar-image {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  display: block;
+  border: 1px solid #e6d0c0;
+  background: #fff7f1;
+}
+
 @media (max-width: 980px) {
   .layout {
     grid-template-columns: 1fr;
