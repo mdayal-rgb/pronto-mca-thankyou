@@ -18,7 +18,7 @@ const copy = {
     ],
   },
   wellBeingCheckIn: {
-    title: "Recipient Experience Agent",
+    title: "Recipient Experience",
     body: "Recipient-facing support agent for confirmations, missed-meal flags, and follow-up help.",
     bullets: [
       "Runs across web, voice, and Slack channels",
