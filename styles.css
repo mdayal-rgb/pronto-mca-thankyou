@@ -33,7 +33,7 @@ body {
 
 .hero-logo {
   display: block;
-  width: min(180px, 34vw);
+  width: min(360px, 68vw);
   height: auto;
   margin: 0 0 24px;
 }
@@ -753,7 +753,7 @@ h1 {
 
 @media (max-width: 980px) {
   .hero-logo {
-    width: min(150px, 48vw);
+    width: min(300px, 80vw);
     margin-bottom: 14px;
   }
   .hero {
