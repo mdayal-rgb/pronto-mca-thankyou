@@ -442,24 +442,25 @@
          -------------------------------------------------------------------------- */
       .pc-impact {
         --pc-ink:        var(--text);
-        --pc-body:       #61554d;
+        --pc-body:       #5f544d;
         --pc-muted:      #8a7a70;
         --pc-accent:     var(--accent);
-        --pc-accent-bg:  #fff3e9;
-        --pc-accent-br:  #efd7c4;
-        --pc-surface:    #fff9f4;
+        --pc-accent-bg:  #fff4ea;
+        --pc-accent-br:  #e8c9b0;
+        --pc-surface:    transparent;
         --pc-surface-2:  #fffdfa;
         --pc-line:       #ecd5c3;
 
-        padding: 2.25rem 1.5rem 2rem;
+        margin-top: 24px;
+        padding: 0;
         background: var(--pc-surface);
         color: var(--pc-body);
         font-family: inherit;
       }
 
       .pc-impact__inner {
-        max-width: 1080px;
-        margin: 0 auto;
+        max-width: none;
+        margin: 0;
       }
 
       .pc-impact__eyebrow {
@@ -473,17 +474,17 @@
 
       .pc-impact__heading {
         margin: 0 0 .9rem;
-        font-size: clamp(1.6rem, 3.4vw, 2.35rem);
-        line-height: 1.25;
+        font-size: clamp(1.9rem, 3.3vw, 3rem);
+        line-height: 1.12;
         font-weight: 700;
         color: var(--pc-ink);
-        max-width: 22ch;
+        max-width: 18ch;
       }
 
       .pc-impact__lede {
-        margin: 0 0 2rem;
-        font-size: 1.0625rem;
-        line-height: 1.65;
+        margin: 0 0 1.5rem;
+        font-size: 1.02rem;
+        line-height: 1.55;
         max-width: 62ch;
         color: var(--pc-body);
       }
@@ -491,20 +492,21 @@
       /* --- verified metric cards --- */
       .pc-impact__metrics {
         list-style: none;
-        margin: 0 0 2rem;
+        margin: 0 0 1.5rem;
         padding: 0;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 1rem;
+        gap: 14px;
       }
 
       .pc-metric {
         display: flex;
         flex-direction: column;
-        padding: 1.35rem 1.4rem;
+        padding: 1.1rem 1.1rem;
         background: var(--pc-surface-2);
         border: 1px solid var(--pc-line);
-        border-radius: 12px;
+        border-radius: 14px;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
       }
 
       .pc-metric__value {
@@ -517,8 +519,8 @@
 
       .pc-metric__label {
         margin-top: .55rem;
-        font-size: .9375rem;
-        font-weight: 600;
+        font-size: 1.01rem;
+        font-weight: 700;
         color: var(--pc-ink);
       }
 
@@ -567,7 +569,7 @@
         display: flex;
         align-items: center;
         padding: 1rem 1.15rem;
-        border-radius: 10px;
+        border-radius: 12px;
         font-size: .9375rem;
         line-height: 1.45;
         border: 1px solid var(--pc-line);
@@ -593,7 +595,7 @@
 
       /* --- mobile: stack each pair, rotate the arrow --- */
       @media (max-width: 640px) {
-        .pc-impact { padding: 2rem 1.25rem 1.75rem; }
+        .pc-impact { margin-top: 20px; }
 
         .pc-realloc__headers { display: none; }
 
