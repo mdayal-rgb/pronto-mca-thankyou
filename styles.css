@@ -120,7 +120,7 @@ body {
   width: 100%;
   height: auto;
   display: block;
-  margin: 0 0 12px;
+  margin: 4px 0 16px;
   border: 1px solid #ecd5c3;
   border-radius: 14px;
   background: #fffdfa;
@@ -254,7 +254,7 @@ h1 {
   background: var(--card);
   border: 1.5px solid var(--border);
   border-radius: 14px;
-  padding: 18px;
+  padding: 20px;
   margin-bottom: 16px;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
 }
@@ -267,15 +267,16 @@ h1 {
 .card p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.58;
+  max-width: 66ch;
 }
 
 .label {
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #8f5f3e;
+  color: #744a30;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .card-wide {
@@ -288,10 +289,10 @@ h1 {
 
 .rail-title {
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #8f5f3e;
+  color: #744a30;
   margin-top: 6px;
   border-left: 3px solid var(--accent);
   padding-left: 8px;
@@ -324,7 +325,7 @@ h1 {
 .fallback-tag {
   text-align: center;
   margin: 0 0 12px;
-  color: #9a8d84;
+  color: #7a6c63;
   font-size: 12px;
 }
 
@@ -401,8 +402,8 @@ h1 {
 
 .flow-details p {
   margin: 0 0 6px;
-  font-size: 13px;
-  line-height: 1.45;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .flow-details p:last-child {
