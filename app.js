@@ -30,7 +30,7 @@ const copy = {
     title: "Salesforce Org",
     body: "Core operational system where agent actions, case context, and workflow orchestration live.",
     bullets: [
-      "Owns service workflows and assignment",
+      "Owns service workflows and assignments",
       "Anchors the architecture for governance",
       "Best demo line: the trusted source of execution truth",
     ],

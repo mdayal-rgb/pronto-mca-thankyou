@@ -68,7 +68,6 @@ body {
   border: 1px solid #ecd5c3;
   border-radius: 14px;
   padding: 20px;
-  margin-bottom: 12px;
 }
 
 .narrative h2 {
@@ -99,27 +98,8 @@ body {
 
 .solution-agent-grid {
   margin-top: 14px;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-
-.solution-agent-grid .agent-card {
-  background: #fffdfa;
-  border: 1.5px solid #ecd5c3;
-  padding: 14px 16px;
-}
-
-.solution-agent-grid .agent-card h3 {
-  color: #2f2b27;
-  font-size: clamp(1.15rem, 1.9vw, 1.45rem);
-  line-height: 1.28;
-  margin-bottom: 6px;
-}
-
-.solution-agent-grid .agent-card p {
-  color: #61554d;
-  font-size: 0.96rem;
-  line-height: 1.5;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
 .mission-section {
