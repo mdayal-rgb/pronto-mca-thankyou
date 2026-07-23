@@ -24,6 +24,15 @@
       </header>
 
       <section class="narrative-grid">
+        <section class="narrative narrative-card mission-section">
+          <p class="eyebrow">Mission</p>
+          <h2>Food as medicine. Do no harm.</h2>
+          <p>
+            Deliver with dignity, warmth, and trust so the right meal reaches the right person,
+            safely and on time.
+          </p>
+        </section>
+
         <section class="narrative narrative-card challenge-section">
           <p class="eyebrow">Challenge</p>
           <h2>Too much food is wasted while families still miss meals.</h2>
@@ -43,20 +52,11 @@
           </p>
         </section>
 
-        <section class="narrative narrative-card mission-section">
-          <p class="eyebrow">Mission</p>
-          <h2>Food as medicine. Do no harm.</h2>
-          <p>
-            Deliver with dignity, warmth, and trust so the right meal reaches the right person,
-            safely and on time.
-          </p>
-        </section>
       </section>
 
       <h2 class="section-heading">Agent Details</h2>
       <section class="embedded-agents">
-        <p class="eyebrow eyebrow-dark">Embedded Agent</p>
-        <h2 class="embedded-title">The embedded agent</h2>
+        <h2 class="embedded-title">The Agentic Team</h2>
         <p class="embedded-subtitle">
           The Pronto site hosts a live Salesforce Agentforce agent — a warm concierge, not a form.
         </p>
@@ -66,7 +66,7 @@
             <div class="agent-chip" aria-hidden="true">❤</div>
             <h3>Rescue Match &amp; Dispatch</h3>
             <p>
-              Matches donation → need → driver on Snowflake telemetry. The operational spine.
+              Matches donation → need → driver on Snowflake telemetry.
             </p>
           </article>
 
@@ -314,11 +314,10 @@
 
       <section class="pc-impact" id="impact" aria-labelledby="pc-impact-heading">
         <div class="pc-impact__inner">
-
-          <p class="pc-impact__eyebrow">Impact and business value</p>
-          <h2 class="pc-impact__heading" id="pc-impact-heading">
+          <h2 class="section-heading pc-impact-section-heading" id="pc-impact-heading">Impact and Business Value</h2>
+          <h3 class="pc-impact__heading">
             The agents don&rsquo;t replace the coordinator. They give the job back.
-          </h2>
+          </h3>
           <p class="pc-impact__lede">
             Screening a rescued meal against a household used to mean phone calls, a manual
             safety check, and staff coordination. The agents absorb that work so the same
@@ -463,19 +462,14 @@
         margin: 0;
       }
 
-      .pc-impact__eyebrow {
-        margin: 0 0 .6rem;
-        font-size: .8125rem;
-        font-weight: 600;
-        letter-spacing: .06em;
-        text-transform: uppercase;
-        color: var(--pc-accent);
+      .pc-impact-section-heading {
+        margin: 0 0 8px;
       }
 
       .pc-impact__heading {
-        margin: 0 0 .9rem;
-        font-size: clamp(1.9rem, 3.3vw, 3rem);
-        line-height: 1.12;
+        margin: 0 0 0.9rem;
+        font-size: clamp(1.65rem, 2.9vw, 2.5rem);
+        line-height: 1.16;
         font-weight: 700;
         color: var(--pc-ink);
         max-width: 18ch;
