@@ -95,6 +95,20 @@ body {
   border-left: 5px solid #d49a58;
 }
 
+.solution-agent-grid {
+  margin-top: 14px;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.solution-agent-grid .agent-card {
+  padding: 16px;
+}
+
+.solution-agent-grid .agent-card h3 {
+  font-size: 26px;
+}
+
 .mission-section {
   border-left: 5px solid #8c6b51;
   grid-column: 1 / -1;

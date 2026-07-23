@@ -26,10 +26,11 @@
       <section class="narrative-grid">
         <section class="narrative narrative-card mission-section">
           <p class="eyebrow">Mission</p>
-          <h2>Food as medicine. Do no harm.</h2>
+          <h2>Good food is thrown away every day. Neighbors go hungry every day. We exist to close that gap — safely.</h2>
           <p>
-            Deliver with dignity, warmth, and trust so the right meal reaches the right person,
-            safely and on time.
+            Rescued food arrives from many kitchens with unknown handling history, and many of
+            the people we serve have serious allergies or no way to reach help. So we treat
+            safety as the first commitment we make on every single delivery.
           </p>
         </section>
 
@@ -50,42 +51,33 @@
             Pronto Cares coordinates donations, recipient need, and driver availability in one
             safety-aware flow that reduces waste and increases successful deliveries.
           </p>
+          <div class="agent-grid solution-agent-grid">
+            <article class="agent-card clickable" data-id="rescueMatchDispatch">
+              <div class="agent-chip" aria-hidden="true">❤</div>
+              <h3>Rescue Match &amp; Dispatch</h3>
+              <p>
+                Matches donation → need → driver on Snowflake telemetry.
+              </p>
+            </article>
+
+            <article class="agent-card clickable" data-id="safeToEatGuardian">
+              <div class="agent-chip" aria-hidden="true">❤</div>
+              <h3>Safe-to-Eat Guardian</h3>
+              <p>
+                Checks allergens + cold-chain before routing. The hero trust moment.
+              </p>
+            </article>
+
+            <article class="agent-card clickable" data-id="wellBeingCheckIn">
+              <div class="agent-chip" aria-hidden="true">❤</div>
+              <h3>Recipient Experience Agent</h3>
+              <p>
+                Multi-channel (web, Voice, Slack) confirmations and missed-meal flags. The human face.
+              </p>
+            </article>
+          </div>
         </section>
 
-      </section>
-
-      <h2 class="section-heading">Agent Details</h2>
-      <section class="embedded-agents">
-        <h2 class="embedded-title">The Agentic Team</h2>
-        <p class="embedded-subtitle">
-          The Pronto site hosts a live Salesforce Agentforce agent — a warm concierge, not a form.
-        </p>
-
-        <div class="agent-grid">
-          <article class="agent-card clickable" data-id="rescueMatchDispatch">
-            <div class="agent-chip" aria-hidden="true">❤</div>
-            <h3>Rescue Match &amp; Dispatch</h3>
-            <p>
-              Matches donation → need → driver on Snowflake telemetry.
-            </p>
-          </article>
-
-          <article class="agent-card clickable" data-id="safeToEatGuardian">
-            <div class="agent-chip" aria-hidden="true">❤</div>
-            <h3>Safe-to-Eat Guardian</h3>
-            <p>
-              Checks allergens + cold-chain before routing. The hero trust moment.
-            </p>
-          </article>
-
-          <article class="agent-card clickable" data-id="wellBeingCheckIn">
-            <div class="agent-chip" aria-hidden="true">❤</div>
-            <h3>Recipient Experience Agent</h3>
-            <p>
-              Multi-channel (web, Voice, Slack) confirmations and missed-meal flags. The human face.
-            </p>
-          </article>
-        </div>
       </section>
 
       <h2 class="section-heading architecture-heading">Architecture</h2>
@@ -472,14 +464,14 @@
         line-height: 1.16;
         font-weight: 700;
         color: var(--pc-ink);
-        max-width: 18ch;
+        max-width: none;
       }
 
       .pc-impact__lede {
         margin: 0 0 1.5rem;
         font-size: 1.02rem;
         line-height: 1.55;
-        max-width: 62ch;
+        max-width: none;
         color: var(--pc-body);
       }
 
