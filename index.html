@@ -305,6 +305,127 @@
           </p>
         </article>
       </section>
+
+      <section class="asset-section" aria-labelledby="asset-heading">
+        <p class="eyebrow">Asset</p>
+        <h2 class="asset-heading" id="asset-heading">Pronto Cares Agentic Food Rescue</h2>
+        <p class="asset-subtitle">
+          Embedded directly on the page for the Pronto Cares agentic food rescue walkthrough.
+        </p>
+        <div class="asset-flow" aria-live="polite">
+          <div class="asset-flow-toolbar">
+            <button class="asset-flow-btn" type="button" id="asset-flow-prev">Previous step</button>
+            <button class="asset-flow-btn" type="button" id="asset-flow-next">Next step</button>
+            <span class="asset-flow-step" id="asset-flow-step"></span>
+          </div>
+          <p class="asset-flow-narration" id="asset-flow-narration"></p>
+          <div class="asset-flow-canvas" id="asset-flow-canvas"></div>
+        </div>
+        <script id="pronto-cares-agentic-food-rescue" type="application/json">
+{
+  "meta": {
+    "title": "Pronto Cares — Agentic Food Rescue",
+    "description": "A donated meal is safety-checked, routed to a shelter, and personalized to a family's allergy — then reallocated so nothing is wasted. Multiple agents coordinate in minutes what used to take phone calls and manual checks."
+  },
+  "nodes": [
+    { "id": "donor", "label": "Donor (Restaurant)", "x": 80, "y": 420, "color": "#00B3FF", "icon": "🍜" },
+    { "id": "site", "label": "Experience Cloud Site", "x": 340, "y": 420, "color": "#066AFE", "icon": "🌐" },
+    { "id": "food_safety", "label": "Food Safety Agent", "x": 640, "y": 240, "color": "#066AFE", "icon": "🛡️" },
+    { "id": "recall", "label": "FDA/USDA Recall Data", "x": 640, "y": 600, "color": "#022AC0", "icon": "📋" },
+    { "id": "coord", "label": "Donation Coordination Agent", "x": 980, "y": 240, "color": "#066AFE", "icon": "🚚" },
+    { "id": "shelter", "label": "Family Shelter", "x": 980, "y": 600, "color": "#00B3FF", "icon": "🏠" },
+    { "id": "campaign", "label": "Campaign Agent", "x": 1320, "y": 240, "color": "#066AFE", "icon": "✉️" },
+    { "id": "family", "label": "Recipient Family", "x": 1320, "y": 600, "color": "#00B3FF", "icon": "👨‍👩‍👧" },
+    { "id": "whatsapp", "label": "WhatsApp Chat", "x": 1640, "y": 600, "color": "#00B3FF", "icon": "💬" },
+    { "id": "nutrition", "label": "Nutrition & Eligibility Agent", "x": 1960, "y": 420, "color": "#066AFE", "icon": "🥗" },
+    { "id": "knowledge", "label": "Food-Safety Knowledge (RAG)", "x": 1960, "y": 120, "color": "#022AC0", "icon": "📚" },
+    { "id": "reroute", "label": "Safe Alternative Meal", "x": 2320, "y": 300, "color": "#FCC003", "icon": "🔄" },
+    { "id": "other_home", "label": "Another Household", "x": 2320, "y": 600, "color": "#00B3FF", "icon": "🏡" }
+  ],
+  "edges": [
+    { "id": "e1", "from": "donor", "to": "site", "label": "offers 200 servings", "style": "solid", "animated": true },
+    { "id": "e2", "from": "site", "to": "food_safety", "label": "submits donation", "style": "solid", "animated": true },
+    { "id": "e3", "from": "food_safety", "to": "recall", "label": "checks recalls", "style": "dotted", "animated": false },
+    { "id": "e4", "from": "food_safety", "to": "coord", "label": "ACCEPT — safe", "style": "solid", "animated": true },
+    { "id": "e5", "from": "coord", "to": "shelter", "label": "reserves + books pickup", "style": "solid", "animated": true },
+    { "id": "e6", "from": "coord", "to": "campaign", "label": "notify recipient", "style": "solid", "animated": false },
+    { "id": "e7", "from": "campaign", "to": "family", "label": "email + WhatsApp", "style": "solid", "animated": true },
+    { "id": "e8", "from": "family", "to": "whatsapp", "label": "taps to chat", "style": "solid", "animated": true },
+    { "id": "e9", "from": "whatsapp", "to": "nutrition", "label": "\"child has peanut allergy\"", "style": "solid", "animated": true },
+    { "id": "e10", "from": "nutrition", "to": "knowledge", "label": "checks allergen policy", "style": "dotted", "animated": false },
+    { "id": "e11", "from": "nutrition", "to": "reroute", "label": "REROUTE — swap meal", "style": "solid", "animated": true },
+    { "id": "e12", "from": "reroute", "to": "family", "label": "safe meal confirmed", "style": "dashed", "animated": true },
+    { "id": "e13", "from": "nutrition", "to": "other_home", "label": "Kung Pao reallocated", "style": "dashed", "animated": true }
+  ],
+  "steps": [
+    {
+      "id": "s1",
+      "activeNodeIds": ["donor", "site"],
+      "activeEdgeIds": ["e1"],
+      "narration": "A restaurant visits the food bank's Experience Cloud site and offers to donate 200 servings of Kung Pao chicken, prepared a few hours earlier."
+    },
+    {
+      "id": "s2",
+      "activeNodeIds": ["site", "food_safety", "recall"],
+      "activeEdgeIds": ["e2", "e3"],
+      "narration": "The Food Safety Agent automatically reviews the donation — checking food-safety guidelines, expiration windows, and 2,000+ live FDA/USDA recall notices. The decision is deterministic; no hallucinated safety calls."
+    },
+    {
+      "id": "s3",
+      "activeNodeIds": ["food_safety", "coord", "shelter"],
+      "activeEdgeIds": ["e4", "e5"],
+      "narration": "It determines the food is safe and confirms the donation in real time. The Donation Coordination Agent finds a nearby family shelter with an immediate need, reserves the donation, and coordinates pickup logistics."
+    },
+    {
+      "id": "s4",
+      "activeNodeIds": ["coord", "campaign", "family"],
+      "activeEdgeIds": ["e6", "e7"],
+      "narration": "The Campaign Agent sends the recipient family a personalized email and a WhatsApp message — with click-to-chat — letting them know a fresh meal will be available that evening, with pickup details."
+    },
+    {
+      "id": "s5",
+      "activeNodeIds": ["family", "whatsapp", "nutrition"],
+      "activeEdgeIds": ["e8", "e9"],
+      "narration": "The parent taps the WhatsApp message to chat with the AI assistant and mentions that their child was recently diagnosed with a peanut allergy."
+    },
+    {
+      "id": "s6",
+      "activeNodeIds": ["nutrition", "knowledge", "reroute"],
+      "activeEdgeIds": ["e10", "e11"],
+      "narration": "The Nutrition & Eligibility Agent reviews the meal ingredients, recognizes Kung Pao contains peanuts, and — citing the zero-tolerance allergen policy from the knowledge base — determines it is not safe. It finds a safe alternative meal at the same location and updates the reservation automatically."
+    },
+    {
+      "id": "s7",
+      "activeNodeIds": ["reroute", "family", "other_home", "nutrition"],
+      "activeEdgeIds": ["e12", "e13"],
+      "narration": "The family gets an instant confirmation of the new, safe meal — while the original Kung Pao is reallocated to another household without dietary restrictions. No food is wasted; every family receives a safe meal."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Deterministic gates",
+      "definition": "Apex rules that decide ACCEPT / REJECT / REROUTE against FDA Food Code thresholds — the safety call is code, not the LLM, so it can't be hallucinated."
+    },
+    {
+      "term": "RAG",
+      "definition": "Retrieval-Augmented Generation — the agent's explanation and policy citation are pulled live from the food-safety knowledge library, not invented."
+    },
+    {
+      "term": "MIAW",
+      "definition": "Messaging for In-App and Web — the embedded chat channel that puts the same agent on the website and WhatsApp."
+    },
+    {
+      "term": "Zero-tolerance allergen rule",
+      "definition": "A hard-allergen match is never overridden by a recipient's cross-contact preference; the item must be rerouted."
+    }
+  ],
+  "callout": {
+    "enabled": true,
+    "text": "Multiple phone calls, manual safety checks, and staff coordination → handled by AI agents in minutes. Safer food, less waste, personalized service, more families served with the same staff."
+  }
+}
+        </script>
+      </section>
     </main>
 
     <script src="./app.js"></script>

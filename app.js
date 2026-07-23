@@ -143,4 +143,177 @@ architectureToggles.forEach((toggle) => {
   });
 });
 
+const embeddedAssetScript = document.querySelector("#pronto-cares-agentic-food-rescue");
+const embeddedAssetPreview = document.querySelector("#asset-script-preview");
+const assetFlowCanvas = document.querySelector("#asset-flow-canvas");
+const assetFlowNarration = document.querySelector("#asset-flow-narration");
+const assetFlowStep = document.querySelector("#asset-flow-step");
+const assetFlowPrev = document.querySelector("#asset-flow-prev");
+const assetFlowNext = document.querySelector("#asset-flow-next");
+
+if (embeddedAssetScript) {
+  try {
+    const embeddedAssetJson = JSON.parse(embeddedAssetScript.textContent || "{}");
+    if (embeddedAssetPreview) {
+      embeddedAssetPreview.textContent = JSON.stringify(embeddedAssetJson, null, 2);
+    }
+    renderAssetFlow(embeddedAssetJson);
+  } catch (error) {
+    if (embeddedAssetPreview) {
+      embeddedAssetPreview.textContent = "Unable to parse embedded asset JSON.";
+    }
+  }
+}
+
+function renderAssetFlow(data) {
+  if (
+    !assetFlowCanvas ||
+    !assetFlowNarration ||
+    !assetFlowStep ||
+    !assetFlowPrev ||
+    !assetFlowNext ||
+    !Array.isArray(data.nodes) ||
+    !Array.isArray(data.edges) ||
+    !Array.isArray(data.steps)
+  ) {
+    return;
+  }
+
+  const nodeById = new Map(data.nodes.map((node) => [node.id, node]));
+  const edgeById = new Map(data.edges.map((edge) => [edge.id, edge]));
+  const bounds = data.nodes.reduce(
+    (acc, node) => ({
+      minX: Math.min(acc.minX, node.x),
+      minY: Math.min(acc.minY, node.y),
+      maxX: Math.max(acc.maxX, node.x),
+      maxY: Math.max(acc.maxY, node.y),
+    }),
+    { minX: Infinity, minY: Infinity, maxX: -Infinity, maxY: -Infinity }
+  );
+
+  const pad = 120;
+  const width = Math.max(960, bounds.maxX - bounds.minX + pad * 2);
+  const height = Math.max(520, bounds.maxY - bounds.minY + pad * 2);
+
+  const layer = document.createElement("div");
+  layer.className = "asset-flow-layer";
+  layer.style.width = `${width}px`;
+  layer.style.height = `${height}px`;
+
+  const svgNS = "http://www.w3.org/2000/svg";
+  const edgeSvg = document.createElementNS(svgNS, "svg");
+  edgeSvg.setAttribute("class", "asset-flow-edges");
+  edgeSvg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  edgeSvg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+
+  const edgeEls = new Map();
+  data.edges.forEach((edge) => {
+    const from = nodeById.get(edge.from);
+    const to = nodeById.get(edge.to);
+    if (!from || !to) return;
+    const x1 = from.x - bounds.minX + pad;
+    const y1 = from.y - bounds.minY + pad;
+    const x2 = to.x - bounds.minX + pad;
+    const y2 = to.y - bounds.minY + pad;
+
+    const line = document.createElementNS(svgNS, "line");
+    line.setAttribute("x1", String(x1));
+    line.setAttribute("y1", String(y1));
+    line.setAttribute("x2", String(x2));
+    line.setAttribute("y2", String(y2));
+    line.setAttribute("class", `asset-edge asset-edge-${edge.style || "solid"}`);
+    edgeSvg.appendChild(line);
+    edgeEls.set(edge.id, line);
+  });
+
+  const nodeLayer = document.createElement("div");
+  nodeLayer.className = "asset-flow-nodes";
+  const nodeEls = new Map();
+  data.nodes.forEach((node) => {
+    const x = node.x - bounds.minX + pad;
+    const y = node.y - bounds.minY + pad;
+    const el = document.createElement("article");
+    el.className = "asset-node";
+    el.style.left = `${x}px`;
+    el.style.top = `${y}px`;
+    el.style.borderColor = node.color || "#066AFE";
+    el.innerHTML = `
+      <div class="asset-node-icon">${node.icon || "●"}</div>
+      <h3>${node.label}</h3>
+    `;
+    nodeLayer.appendChild(el);
+    nodeEls.set(node.id, el);
+  });
+
+  layer.appendChild(edgeSvg);
+  layer.appendChild(nodeLayer);
+  assetFlowCanvas.innerHTML = "";
+  assetFlowCanvas.appendChild(layer);
+
+  let stepIndex = 0;
+  const totalSteps = data.steps.length;
+  const canvasEl = assetFlowCanvas;
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const scrollStepIntoView = (activeNodeIds) => {
+    if (!canvasEl || activeNodeIds.size === 0) return;
+
+    const positions = [];
+    activeNodeIds.forEach((id) => {
+      const node = nodeById.get(id);
+      if (!node) return;
+      const x = node.x - bounds.minX + pad;
+      const y = node.y - bounds.minY + pad;
+      positions.push({ x, y });
+    });
+    if (positions.length === 0) return;
+
+    const avgX = positions.reduce((sum, p) => sum + p.x, 0) / positions.length;
+    const avgY = positions.reduce((sum, p) => sum + p.y, 0) / positions.length;
+
+    const targetLeft = Math.max(0, avgX - canvasEl.clientWidth / 2);
+    const targetTop = Math.max(0, avgY - canvasEl.clientHeight / 2);
+
+    canvasEl.scrollTo({
+      left: targetLeft,
+      top: targetTop,
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
+  };
+
+  const renderStep = (index) => {
+    const step = data.steps[index];
+    if (!step) return;
+    const activeNodeIds = new Set(step.activeNodeIds || []);
+    const activeEdgeIds = new Set(step.activeEdgeIds || []);
+
+    nodeEls.forEach((el, id) => {
+      el.classList.toggle("active", activeNodeIds.has(id));
+    });
+    edgeEls.forEach((el, id) => {
+      const edgeMeta = edgeById.get(id);
+      el.classList.toggle("active", activeEdgeIds.has(id));
+      el.classList.toggle("is-animated", !!(edgeMeta && edgeMeta.animated && activeEdgeIds.has(id)));
+    });
+
+    assetFlowNarration.textContent = step.narration || "";
+    assetFlowStep.textContent = `Step ${index + 1} of ${totalSteps}`;
+    assetFlowPrev.disabled = index === 0;
+    assetFlowNext.disabled = index === totalSteps - 1;
+    scrollStepIntoView(activeNodeIds);
+  };
+
+  assetFlowPrev.onclick = () => {
+    stepIndex = Math.max(0, stepIndex - 1);
+    renderStep(stepIndex);
+  };
+
+  assetFlowNext.onclick = () => {
+    stepIndex = Math.min(totalSteps - 1, stepIndex + 1);
+    renderStep(stepIndex);
+  };
+
+  renderStep(stepIndex);
+}
+
 selectCard("rescueMatchDispatch");

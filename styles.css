@@ -431,6 +431,7 @@ h1 {
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
   margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .persona-card {
@@ -491,6 +492,156 @@ h1 {
   display: block;
   border: 1px solid #e6d0c0;
   background: #fff7f1;
+}
+
+.asset-section {
+  margin-top: 22px;
+  background: #fff9f4;
+  border: 1.5px solid #ecd5c3;
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+.asset-heading {
+  margin: 6px 0 8px;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #2f2b27;
+}
+
+.asset-subtitle {
+  margin: 0;
+  color: #61554d;
+  line-height: 1.45;
+  max-width: 700px;
+}
+
+.asset-flow {
+  margin-top: 14px;
+}
+
+.asset-flow-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.asset-flow-btn {
+  border: 1px solid #e8c9b0;
+  border-radius: 999px;
+  background: #fff4ea;
+  color: #8a5a36;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.asset-flow-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.asset-flow-step {
+  color: #7f6b5e;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.asset-flow-narration {
+  margin: 10px 0 12px;
+  color: #574c45;
+  line-height: 1.5;
+}
+
+.asset-flow-canvas {
+  border: 1px solid #ecd5c3;
+  border-radius: 10px;
+  background: #fffdfa;
+  overflow: auto;
+  max-height: 70vh;
+}
+
+.asset-flow-layer {
+  position: relative;
+}
+
+.asset-flow-edges {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.asset-edge {
+  stroke: #c6b4a6;
+  stroke-width: 2;
+  opacity: 0.55;
+}
+
+.asset-edge-solid {
+  stroke-dasharray: none;
+}
+
+.asset-edge-dashed {
+  stroke-dasharray: 8 5;
+}
+
+.asset-edge-dotted {
+  stroke-dasharray: 2 6;
+}
+
+.asset-edge.active {
+  stroke: #f26b1d;
+  opacity: 1;
+  stroke-width: 2.6;
+}
+
+.asset-edge.is-animated {
+  stroke-dasharray: 10 8;
+  animation: edge-dash 1.4s linear infinite;
+}
+
+.asset-flow-nodes {
+  position: absolute;
+  inset: 0;
+}
+
+.asset-node {
+  position: absolute;
+  width: 180px;
+  transform: translate(-50%, -50%);
+  background: #fff9f4;
+  border: 2px solid #d8c6b8;
+  border-radius: 12px;
+  padding: 8px 10px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+
+.asset-node.active {
+  border-color: #f26b1d !important;
+  box-shadow: 0 0 0 3px rgba(242, 107, 29, 0.18);
+  transform: translate(-50%, -50%) translateY(-1px);
+}
+
+.asset-node h3 {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #3d322c;
+}
+
+.asset-node-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+@keyframes edge-dash {
+  to {
+    stroke-dashoffset: -26;
+  }
 }
 
 @media (max-width: 980px) {
