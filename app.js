@@ -99,7 +99,7 @@ const copy = {
     ],
   },
   personaDriver: {
-    title: "Driver",
+    title: "Coordinator",
     body: "Executes safe handoffs and needs clear route, timing, and exception context.",
     bullets: [
       "Pain: fragmented dispatch and unclear delivery notes",
