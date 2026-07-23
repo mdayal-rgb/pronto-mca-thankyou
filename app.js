@@ -128,7 +128,15 @@ function selectCard(id) {
 }
 
 cards.forEach((card) => {
+  card.setAttribute("tabindex", "0");
+  card.setAttribute("role", "button");
   card.addEventListener("click", () => selectCard(card.dataset.id));
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      selectCard(card.dataset.id);
+    }
+  });
 });
 
 architectureToggles.forEach((toggle) => {
