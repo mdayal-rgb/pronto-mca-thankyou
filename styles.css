@@ -157,7 +157,7 @@ body {
 
 .arch-stage {
   fill: #4b3f37;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 800;
   letter-spacing: 0.06em;
 }
@@ -176,13 +176,13 @@ body {
 
 .arch-card-title {
   fill: #2f2925;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
 }
 
 .arch-card-body {
   fill: #5e524a;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .arch-guardian {
@@ -193,13 +193,13 @@ body {
 
 .arch-guardian-title {
   fill: #fff8f3;
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 700;
 }
 
 .arch-guardian-body {
   fill: #e8ddd6;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .arch-btn-ok {
@@ -216,7 +216,7 @@ body {
 
 .arch-btn-text {
   fill: #fff;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.05em;
 }
@@ -234,7 +234,7 @@ body {
 
 .arch-band-text {
   fill: #403833;
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 600;
 }
 
@@ -244,7 +244,7 @@ body {
 
 .arch-foot-text {
   fill: #f2e8e1;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
 }
 
