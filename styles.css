@@ -118,14 +118,12 @@ body {
 
 .architecture-reference-image {
   width: 100%;
-  max-width: 1500px;
   height: auto;
   display: block;
-  margin: 4px auto 16px;
+  margin: 4px 0 16px;
   border: 1px solid #ecd5c3;
   border-radius: 14px;
   background: #fffdfa;
-  image-rendering: -webkit-optimize-contrast;
 }
 
 .architecture-canvas {
