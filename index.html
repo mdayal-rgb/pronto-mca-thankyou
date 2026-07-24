@@ -81,7 +81,106 @@
       </section>
 
       <h2 class="section-heading architecture-heading">Architecture</h2>
-      <img src="./assets/pronto-cares-reference-architecture.png" alt="Pronto Cares reference architecture diagram" />
+      <section class="architecture-diagram-shell" aria-labelledby="architecture-diagram-title">
+        <h3 id="architecture-diagram-title" class="sr-only">Pronto Cares system architecture</h3>
+        <div class="architecture-diagram-scroll">
+          <svg
+            class="architecture-diagram"
+            viewBox="0 0 1600 620"
+            role="img"
+            aria-label="Five-stage Pronto Cares architecture: data sources, Data Cloud 360, Safe-to-Eat Guardian, live action layer, and surface plus people."
+          >
+            <rect x="1" y="1" width="1598" height="618" rx="18" class="arch-bg" />
+
+            <text x="28" y="45" class="arch-stage">1 DATA SOURCES</text>
+            <text x="348" y="45" class="arch-stage">2 DATA CLOUD 360</text>
+            <text x="668" y="45" class="arch-stage">3 SAFE-TO-EAT GUARDIAN</text>
+            <text x="988" y="45" class="arch-stage">4 LIVE ACTION LAYER</text>
+            <text x="1308" y="45" class="arch-stage">5 SURFACE + PEOPLE</text>
+
+            <line x1="320" y1="72" x2="320" y2="470" class="arch-divider" />
+            <line x1="640" y1="72" x2="640" y2="470" class="arch-divider" />
+            <line x1="960" y1="72" x2="960" y2="470" class="arch-divider" />
+            <line x1="1280" y1="72" x2="1280" y2="470" class="arch-divider" />
+
+            <rect x="28" y="104" width="266" height="120" rx="14" class="arch-card" />
+            <text x="48" y="138" class="arch-card-title">Snowflake</text>
+            <text x="48" y="164" class="arch-card-body">Rescued items, recipients, dietary prefs,</text>
+            <text x="48" y="186" class="arch-card-body">drivers and telemetry, plus USDA recalls</text>
+
+            <rect x="28" y="236" width="266" height="90" rx="14" class="arch-card" />
+            <text x="48" y="270" class="arch-card-title">Amazon S3</text>
+            <text x="48" y="296" class="arch-card-body">Order and customer enrichment feeds</text>
+
+            <rect x="28" y="338" width="266" height="120" rx="14" class="arch-card" />
+            <text x="48" y="372" class="arch-card-title">Food-Safety Policies</text>
+            <text x="48" y="398" class="arch-card-body">Allergen, cold-chain, and handling docs</text>
+            <text x="48" y="420" class="arch-card-body">from policy references</text>
+
+            <rect x="348" y="92" width="266" height="136" rx="14" class="arch-card" />
+            <text x="368" y="126" class="arch-card-title">DMOs</text>
+            <text x="368" y="152" class="arch-card-body">Unified profiles for recipient, donor,</text>
+            <text x="368" y="174" class="arch-card-body">dietary preference, and rescue item context</text>
+
+            <rect x="348" y="238" width="266" height="106" rx="14" class="arch-card" />
+            <text x="368" y="272" class="arch-card-title">Data Library (ADL)</text>
+            <text x="368" y="298" class="arch-card-body">Indexed food-safety policy and</text>
+            <text x="368" y="320" class="arch-card-body">grounded citation answers</text>
+
+            <rect x="348" y="356" width="266" height="102" rx="14" class="arch-card" />
+            <text x="368" y="390" class="arch-card-title">Tableau</text>
+            <text x="368" y="416" class="arch-card-body">Impact and SLA reporting in the same</text>
+            <text x="368" y="438" class="arch-card-body">unified data plane</text>
+
+            <rect x="666" y="118" width="276" height="336" rx="16" class="arch-guardian" />
+            <text x="692" y="156" class="arch-guardian-title">Guardian Agent</text>
+            <text x="692" y="186" class="arch-guardian-body">1  Apex gates decide</text>
+            <text x="692" y="210" class="arch-guardian-body">FDA hold-code thresholds + allergen conflicts</text>
+            <text x="692" y="252" class="arch-guardian-body">2  LLM explains</text>
+            <text x="692" y="276" class="arch-guardian-body">Grounded policy reasoning for care teams</text>
+            <text x="692" y="318" class="arch-guardian-body">3  RAG cites policy</text>
+            <text x="692" y="342" class="arch-guardian-body">Citation floor from Data Library passages</text>
+            <rect x="692" y="384" width="74" height="28" rx="10" class="arch-btn-ok" />
+            <text x="715" y="404" class="arch-btn-text">ACCEPT</text>
+            <rect x="778" y="384" width="74" height="28" rx="10" class="arch-btn-warn" />
+            <text x="801" y="404" class="arch-btn-text">REJECT</text>
+            <rect x="864" y="384" width="74" height="28" rx="10" class="arch-btn-reroute" />
+            <text x="879" y="404" class="arch-btn-text">REROUTE</text>
+
+            <rect x="988" y="178" width="266" height="126" rx="14" class="arch-card" />
+            <text x="1008" y="212" class="arch-card-title">Invocable Apex</text>
+            <text x="1008" y="238" class="arch-card-body">Lookup item and recipient, run allergen checks,</text>
+            <text x="1008" y="260" class="arch-card-body">and hydrate meal DMOs for dispatch query</text>
+
+            <rect x="988" y="316" width="266" height="126" rx="14" class="arch-card" />
+            <text x="1008" y="350" class="arch-card-title">Knowledge Retrieval</text>
+            <text x="1008" y="376" class="arch-card-body">Policy-grounded stream retrieval with</text>
+            <text x="1008" y="398" class="arch-card-body">safe, cite-backed passages</text>
+
+            <rect x="1308" y="186" width="266" height="114" rx="14" class="arch-card" />
+            <text x="1328" y="220" class="arch-card-title">React Site + MIAW</text>
+            <text x="1328" y="246" class="arch-card-body">Guest experience cloud site with</text>
+            <text x="1328" y="268" class="arch-card-body">embedded live chat and next actions</text>
+
+            <rect x="1308" y="312" width="266" height="130" rx="14" class="arch-card" />
+            <text x="1328" y="346" class="arch-card-title">Recipients · Donors · Volunteers</text>
+            <text x="1328" y="372" class="arch-card-body">Safe, dietary-matched meals</text>
+            <text x="1328" y="394" class="arch-card-body">delivered with dignity and no waste</text>
+
+            <line x1="294" y1="280" x2="346" y2="280" class="arch-flow" />
+            <line x1="614" y1="280" x2="664" y2="280" class="arch-flow" />
+            <line x1="944" y1="280" x2="986" y2="280" class="arch-flow" />
+            <line x1="1254" y1="280" x2="1306" y2="280" class="arch-flow" />
+
+            <rect x="28" y="492" width="1546" height="56" rx="12" class="arch-band" />
+            <text x="50" y="525" class="arch-band-text">Deterministic guardrails: Apex enforces safety thresholds; AI explanations remain policy-grounded and auditable.</text>
+
+            <rect x="28" y="558" width="1546" height="34" rx="10" class="arch-foot" />
+            <text x="50" y="581" class="arch-foot-text">Einstein Trust Layer · Zero data retention · PII masking · CSP/CORS controls · Audit trail</text>
+          </svg>
+        </div>
+        <p class="architecture-diagram-note">Scroll horizontally to view the full architecture at full fidelity.</p>
+      </section>
       <section class="architecture-canvas">
       <section class="layout">
         <section class="left-rail">
